@@ -1,0 +1,55 @@
+.landingPagecontainer {
+    width: 100vw; /* Use 100vw for the full width */
+    height: 100vh; /* 100vh for the full height */
+    background: url("../public/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.landingPagecontainer nav{
+    padding-inline: 1.2rem;
+    padding-block: 1.6rem;
+    display :flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.landingPagecontainer nav h2{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+.landingPagecontainer nav .navlist{
+    display: flex;
+    gap :1.6rem;
+    cursor: pointer;
+}
+.landingMainContainer > div:nth-child(1){
+    font-size:  1.8rem; 
+}
+.landingMainContainer > div:nth-child(1) div[role="button"]{
+    background-color: orange;
+    width: fit-content;
+    padding: 1rem; 
+    border-radius: 15px;
+    margin-top: 17px;
+    justify-content: center;
+}
+.landingMainContainer > div:nth-child(1) div[role="button"] a {
+    text-decoration: none;
+    color:white;
+    font-size:1.5rem ;
+}
+
+.landingMainContainer > div:nth-child(2) img{
+    height: 80vh;
+    width: auto;
+
+}
+
+.landingMainContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-inline:3rem; 
+    height: 70vh;
+    align-items: center;
+}
