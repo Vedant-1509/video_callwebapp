@@ -53,3 +53,18 @@
     height: 70vh;
     align-items: center;
 }
+
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+.meetContainer{
+    display: flex;
+    padding-inline: 20px;
+    height: 80vh;
+    gap: 10px;
+    justify-content: center;
+}

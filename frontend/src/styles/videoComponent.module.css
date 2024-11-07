@@ -2,6 +2,8 @@
     position: relative;
     height: 100vh;
     background: rgb(1, 4, 48);
+    /* background: url("../background.png"); */
+    
 }
 
 .meetUserVideo {
@@ -41,13 +43,16 @@
 
 .chatRoom {
     position: absolute;
-    height: 90vh;
+    height: 100%;
     right: 0;
     background: white;
     border-radius: 10px;
-    width: 30vw;
+    width: 20vw;
     padding-inline: 20px;
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 100%; /* Makes sure it uses the full height available */
 }
+
 
 .chatContainer {
     position: relative;
@@ -59,3 +64,4 @@
     position: absolute;
     bottom: 0;
 }
+
