@@ -6,6 +6,7 @@ import Authentication from './pages/authentication.jsx';
 import { AuthProvider } from './contexts/AuthContext.jsx';
 import VedioMeetComponent from './pages/VideoMeetComponent.jsx';
 import HomeComponent from './pages/home.jsx'
+import History from './pages/history.jsx';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
             <Route path='/auth' element={<Authentication />} />
 
             <Route path='/home' element={<HomeComponent/>}/>
-
+            <Route path='/history' element={<History/>}/>
             <Route path='/:url' element={<VedioMeetComponent/>}/>
           </Routes>
         </AuthProvider>

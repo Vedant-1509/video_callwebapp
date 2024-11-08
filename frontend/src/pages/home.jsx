@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import withAuth from '../utils/withAuth';
 import { useNavigate } from 'react-router-dom';
 import RestoreIcon from '@mui/icons-material/Restore';
 import { IconButton, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
+import { AuthContext } from '../contexts/AuthContext';
 
 function HomeComponent() {
+
+    let {addToUserHistory}=useContext(AuthContext);
 
     let navigate = useNavigate();
     const [meetingCode, setMeetingCode] = useState("");
 
     let handleJoinVideoCall = async () => {
+        await addToUserHistory(meetingCode)
         navigate(`/${meetingCode}`);
     };
 
     return (
         <>
-            {/* Navbar with Background Image */}
+           
             <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '10px 20px',
-                backgroundImage: 'url("/background.png")', // Referencing the image from public folder
-                backgroundSize: 'cover', // Ensures the background covers the entire navbar
+                backgroundImage: 'url("/background.png")', 
+                backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 color: 'white'
             }}>
@@ -31,7 +35,9 @@ function HomeComponent() {
                     <h2>TalkStream</h2>
                 </div>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                    <IconButton style={{ color: "white" }}>
+                    <IconButton onClick={()=>{
+                        navigate('/history')
+                    }} style={{ color: "white" }}>
                         <RestoreIcon />
                         <p style={{ marginLeft: '5px' }}>History</p>
                     </IconButton>
@@ -52,7 +58,7 @@ function HomeComponent() {
                 </div>
             </div>
 
-            {/* Main Content */}
+            
             <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
