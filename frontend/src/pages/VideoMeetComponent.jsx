@@ -440,7 +440,7 @@ export default function VideoMeetComponent() {
                         onChange={e => setUsername(e.target.value)}
                     />
                     <Button variant="contained" onClick={connect}>Connect</Button>
-                    <div>
+                    <div>ddd
                         <video ref={localVideoref} autoPlay muted></video>
                     </div>
                 </div>
@@ -450,97 +450,27 @@ export default function VideoMeetComponent() {
                     <div className={styles.chatContainer}>
                         <h1>Chat</h1>
                         <div className={styles.chattingDisplay}>
-                            {messages.length > 0 ? messages.map((item, index) => {
-                                return (
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            alignItems: 'flex-start',
-                                            marginBottom: '20px',
-                                            justifyContent: item.sender === 'You' ? 'flex-end' : 'flex-start' // Align based on sender
-                                        }}
-                                        key={index}
-                                    >
-                                        {/* Display avatar on the left for others, not for 'You' */}
-                                        {item.sender !== 'You' && (
-                                            <div
-                                                style={{
-                                                    width: '40px',
-                                                    height: '40px',
-                                                    borderRadius: '50%',
-                                                    backgroundColor: '#4CAF50', // Green background for avatar
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    marginRight: '10px'
-                                                }}
-                                            >
-                                                <PersonIcon style={{ color: 'white', fontSize: '24px' }} />
-                                            </div>
-                                        )}
 
-                                        {/* Message bubble */}
-                                        <div
-                                            style={{
-                                                maxWidth: '70%',
-                                                backgroundColor: item.sender === 'You' ? '#DCF8C6' : '#f1f1f1', // Different color for sender vs receiver
-                                                padding: '10px 15px',
-                                                borderRadius: '20px',
-                                                borderTopRightRadius: item.sender === 'You' ? '0' : '20px', // Slight change in shape
-                                                borderTopLeftRadius: item.sender !== 'You' ? '0' : '20px',
-                                                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-                                                position: 'relative'
-                                            }}
-                                        >
-                                            <p style={{ fontWeight: 'bold', marginBottom: '5px', color: '#333' }}>{item.sender}</p>
-                                            <p style={{ margin: 0, color: '#555' }}>{item.data}</p>
-                                            <span
-                                                style={{
-                                                    fontSize: '12px',
-                                                    color: '#888',
-                                                    position: 'absolute',
-                                                    bottom: '-20px',
-                                                    right: '10px'
-                                                }}
-                                            >
-                                                {item.timestamp} {/* Add a timestamp field in your messages data */}
-                                            </span>
-                                        </div>
-
-                                        {/* Display avatar on the right for 'You' */}
-                                        {item.sender === 'You' && (
-                                            <div
-                                                style={{
-                                                    width: '40px',
-                                                    height: '40px',
-                                                    borderRadius: '50%',
-                                                    backgroundColor: '#4CAF50',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    marginLeft: '10px'
-                                                }}
-                                            >
-                                                <PersonIcon style={{ color: 'white', fontSize: '24px' }} />
-                                            </div>
-                                        )}
+                            { messages.length > 0 ? messages.map((item , index)=>{
+                                return(
+                                    <div style={{marginBottom:"25px"}} key={index}>
+                                        <p style={{fontWeight:"bold"}}>{item.sender}</p>
+                                        <p>{item.data}</p>
                                     </div>
-                                );
-                            }) : <p style={{ fontWeight: 'bold', textAlign: 'center' }}>No messages available</p>}
+                                )
+                            }):<p>No Messages yet</p>}
+
 
 
                         </div>
 
                         <div className={styles.chattingArea}>
-
-                            <TextField value={message} onChange={(e) => setMessage(e.target.value)} id="filled-basic" label="message" variant="filled" />
-                            <SendIcon variant="contained" onClick={sendMessage} />
+                            {message}
+                        <TextField value={message} onChange={(e)=>setMessage(e.target.value)} id="outlined-basic" label="Your message" variant="outlined" />
+                        <Button variant='contained' onClick={sendMessage}> Send</Button>
                         </div>
-
-
                     </div>
-
-                </div> : <></>}
+                </div>:<p></p>}
 
 
 
