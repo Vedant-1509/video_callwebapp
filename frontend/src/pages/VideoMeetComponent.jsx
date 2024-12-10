@@ -440,7 +440,7 @@ export default function VideoMeetComponent() {
                         onChange={e => setUsername(e.target.value)}
                     />
                     <Button variant="contained" onClick={connect}>Connect</Button>
-                    <div>ddd
+                    <div>
                         <video ref={localVideoref} autoPlay muted></video>
                     </div>
                 </div>
@@ -465,7 +465,6 @@ export default function VideoMeetComponent() {
                         </div>
 
                         <div className={styles.chattingArea}>
-                            {message}
                         <TextField value={message} onChange={(e)=>setMessage(e.target.value)} id="outlined-basic" label="Your message" variant="outlined" />
                         <Button variant='contained' onClick={sendMessage}> Send</Button>
                         </div>
